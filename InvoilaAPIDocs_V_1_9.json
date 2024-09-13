@@ -1,0 +1,1299 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Invoila API Docs",
+    "description": "how to use",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://apistaging4.invoila.co.id"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "Unauthorized": {
+        "type": "object",
+        "required": [
+          "Message"
+        ],
+        "properties": {
+          "Message": {
+            "type": "string"
+          }
+        }
+      },
+      "GetLoanDetail_Response": {
+        "type": "object",
+        "properties": {
+          "KodeMember": {
+            "type": "string"
+          },
+          "KodePinjaman": {
+            "type": "string"
+          },
+          "LoanAmount": {
+            "type": "string"
+          },
+          "LoanStartDate": {
+            "type": "string"
+          },
+          "DisburseDate": {
+            "type": "string"
+          },
+          "DueDate": {
+            "type": "string"
+          },
+          "InterestPercent": {
+            "type": "string"
+          },
+          "RepaymentPrincipal": {
+            "type": "string"
+          },
+          "RepaymentInterest": {
+            "type": "string"
+          },
+          "RepaymentLate": {
+            "type": "string"
+          },
+          "RepaymentAmount": {
+            "type": "string"
+          },
+          "LoanPurpose": {
+            "type": "string"
+          },
+          "Tenor": {
+            "type": "string"
+          },
+          "TenorType": {
+            "type": "string"
+          },
+          "StatusLoan": {
+            "type": "string"
+          },
+          "Sequence": {
+            "type": "string"
+          },
+          "ResponseCode": {
+            "type": "integer"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          },
+          "AlamatEmail": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestLoan_Response": {
+        "type": "object",
+        "properties": {
+          "KodePinjaman": {
+            "type": "string"
+          },
+          "KodeMember": {
+            "type": "string"
+          },
+          "ResponseCode": {
+            "type": "integer"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          },
+          "AlamatEmail": {
+            "type": "string"
+          }
+        }
+      },
+      "Default_Response": {
+        "type": "object",
+        "properties": {
+          "ResponseCode": {
+            "type": "integer"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          },
+          "AlamatEmail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetTransactionList_Response": {
+        "type": "object",
+        "properties": {
+          "KodeMember": {
+            "type": "string"
+          },
+          "AlamatEmail": {
+            "type": "string"
+          },
+          "Transactions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "KodePinjaman": {
+                  "type": "string"
+                },
+                "LoanAmount": {
+                  "type": "string"
+                },
+                "LoanStartDate": {
+                  "type": "string"
+                },
+                "DisburseDate": {
+                  "type": "string"
+                },
+                "DueDate": {
+                  "type": "string"
+                },
+                "InterestPercent": {
+                  "type": "string"
+                },
+                "Tenor": {
+                  "type": "string"
+                },
+                "TenorType": {
+                  "type": "string"
+                },
+                "RepaymentPrincipal": {
+                  "type": "string"
+                },
+                "RepaymentInterest": {
+                  "type": "string"
+                },
+                "RepaymentLate": {
+                  "type": "string"
+                },
+                "RepaymentAmount": {
+                  "type": "string"
+                },
+                "StatusLoan": {
+                  "type": "string"
+                },
+                "LoanPurpose": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ResponseCode": {
+            "type": "number"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "Register_Response": {
+        "type": "object",
+        "properties": {
+          "StatusMember": {
+            "type": "number"
+          },
+          "KodeMember": {
+            "type": "string"
+          },
+          "ResponseCode": {
+            "type": "number"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          },
+          "AlamatEmail": {
+            "type": "string"
+          }
+        }
+      },
+      "GetMember_Response": {
+        "type": "object",
+        "properties": {
+          "AlamatEmail": {
+            "type": "string"
+          },
+          "KodeMember": {
+            "type": "string"
+          },
+          "Status": {
+            "type": "string"
+          },
+          "Nama": {
+            "type": "string"
+          },
+          "NoHandphone": {
+            "type": "string"
+          },
+          "NoKTP": {
+            "type": "string"
+          },
+          "NoNPWP": {
+            "type": "string"
+          },
+          "IndividualType": {
+            "type": "number"
+          },
+          "Address": {
+            "type": "string"
+          },
+          "Provinsi": {
+            "type": "string"
+          },
+          "Kabupaten": {
+            "type": "string"
+          },
+          "Kecamatan": {
+            "type": "string"
+          },
+          "Kelurahan": {
+            "type": "string"
+          },
+          "NamaBank": {
+            "type": "string"
+          },
+          "NoRekening": {
+            "type": "string"
+          },
+          "NamaRekening": {
+            "type": "string"
+          },
+          "NamaKontakDarurat1": {
+            "type": "string"
+          },
+          "PhoneKontakDarurat1": {
+            "type": "string"
+          },
+          "EmailKontakDarurat1": {
+            "type": "string"
+          },
+          "HubunganKontakDarurat1": {
+            "type": "string"
+          },
+          "NamaKontakDarurat2": {
+            "type": "string"
+          },
+          "PhoneKontakDarurat2": {
+            "type": "string"
+          },
+          "EmailKontakDarurat2": {
+            "type": "string"
+          },
+          "HubunganKontakDarurat2": {
+            "type": "string"
+          },
+          "Kordinat": {
+            "type": "string"
+          },
+          "RekomendasiLimit": {
+            "type": "string"
+          },
+          "RekomendasiTenor": {
+            "type": "string"
+          },
+          "NamaPerusahaan": {
+            "type": "string"
+          },
+          "NoNPWPBadanUsaha": {
+            "type": "string"
+          },
+          "NoAktaPendirian": {
+            "type": "string"
+          },
+          "NoAktaTerbaru": {
+            "type": "string"
+          },
+          "NoSKMenkumham": {
+            "type": "string"
+          },
+          "NoSIUP": {
+            "type": "string"
+          },
+          "NoTDP": {
+            "type": "string"
+          },
+          "NoKTPDirektur": {
+            "type": "string"
+          },
+          "NamaDirektur": {
+            "type": "string"
+          },
+          "NoHandphoneDirektur": {
+            "type": "string"
+          },
+          "EmailDirektur": {
+            "type": "string"
+          },
+          "FileKTPDirektur": {
+            "type": "string"
+          },
+          "LimitPlafon": {
+            "type": "string"
+          },
+          "Outstanding": {
+            "type": "string"
+          },
+          "SisaLimit": {
+            "type": "string"
+          },
+          "LimitPeminjam": {
+            "type": "string"
+          },
+          "PlafonStart": {
+            "type": "string"
+          },
+          "PlafonEnd": {
+            "type": "string"
+          },
+          "DocPlafonBorrowerUrl": {
+            "type": "string"
+          },
+          "DocPlafonBorrowerStatus": {
+            "type": "string"
+          },
+          "DocPlafonLenderUrl": {
+            "type": "string"
+          },
+          "DocPlafonLenderStatus": {
+            "type": "string"
+          },
+          "VirtualAccountName": {
+            "type": "string"
+          },
+          "MandiriVirtualAccountNo": {
+            "type": "string"
+          },
+          "BCAVirtualAccountNo": {
+            "type": "string"
+          },
+          "ResponseCode": {
+            "type": "number"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "GetVA_Response": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "BankID": {
+              "type": "string"
+            },
+            "BankName": {
+              "type": "string"
+            },
+            "VirtualAccountNo": {
+              "type": "string"
+            },
+            "VirtualAccountName": {
+              "type": "string"
+            },
+            "ResponseCode": {
+              "type": "number"
+            },
+            "ResponseMessage": {
+              "type": "string"
+            },
+            "AlamatEmail": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetLimit_Response": {
+        "type": "object",
+        "properties": {
+          "AlamatEmail": {
+            "type": "string"
+          },
+          "KodeMember": {
+            "type": "string"
+          },
+          "LimitPlafon": {
+            "type": "string"
+          },
+          "Outstanding": {
+            "type": "string"
+          },
+          "SisaLimit": {
+            "type": "string"
+          },
+          "ResponseCode": {
+            "type": "number"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "DocumentSign": {
+        "type": "object",
+        "properties": {
+          "linkSign": {
+            "type": "string"
+          },
+          "KodeMember": {
+            "type": "string"
+          },
+          "ResponseCode": {
+            "type": "number"
+          },
+          "ResponseMessage": {
+            "type": "string"
+          },
+          "AlamatEmail": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/Token": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "GetToken",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "example": "password"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "carenow@invoila.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "Carenow01"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string"
+                    },
+                    "token_type": {
+                      "type": "string"
+                    },
+                    "expires_in": {
+                      "type": "string"
+                    },
+                    "userName": {
+                      "type": "string"
+                    },
+                    ".issued": {
+                      "type": "string"
+                    },
+                    ".expires": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "error_description": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Loan/RequestLoan": {
+      "post": {
+        "tags": [
+          "Loan"
+        ],
+        "summary": "RequestLoan",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "application/json": {
+                    "type": "string",
+                    "example": "{\"KodeMember\":\"0424035911\",\"LoanPurpose\":\"Bisnis\",\"LoanAmount\":100000.0,\"Tenor\":2,\"AlamatEmail\":\"ranti@gmail.com\",\"TipeTenor\":1,\"KodeOTP\":\"1398\"}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestLoan_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestLoan_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Loan/RequestLoanOTP": {
+      "post": {
+        "tags": [
+          "Loan"
+        ],
+        "summary": "RequestLoanOTP",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "application/json": {
+                    "type": "string",
+                    "example": "{\"AlamatEmail\":\"ranti@gmail.com\"}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Default_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Default_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Loan//DetailLoan": {
+      "post": {
+        "tags": [
+          "Loan"
+        ],
+        "summary": "GetLoanDetail",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "AlamatEmail": {
+                    "type": "string",
+                    "example": "putrianjani@gmail.com"
+                  },
+                  "KodePinjaman": {
+                    "type": "string",
+                    "example": "LND240405001"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLoanDetail_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLoanDetail_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Loan/GetTransactionList": {
+      "post": {
+        "tags": [
+          "Loan"
+        ],
+        "summary": "GetLoanList",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "AlamatEmail": {
+                    "type": "string",
+                    "example": "putrianjani@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTransactionList_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTransactionList_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Member/Register": {
+      "post": {
+        "tags": [
+          "Member"
+        ],
+        "summary": "RegisterMember",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RekeningKoran": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoSelfie": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileKTP": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileNPWP": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileAktaPendirian": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileNPWPBadanUsaha": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "BukuRekening": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "DocPendukung": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileSKMenkumham": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileAktaTerbaru": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "SKDPFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileKTPDirektur": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "LampiranSuratKuasa": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoDirektur": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoKomisaris": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoTempatUsaha": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileAktaBerisiSusunanPengurusTerbaru": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileSIUP": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileTDPNIB": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "LaporanKeuangan": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "application/json": {
+                    "type": "string",
+                    "example": "{\n  \"Nama\": \"Qwediop Anwar\",\n  \"AlamatEmail\": \"cscasscsc@gamail.com\",\n  \"NoHandphone\": \"4677686575688\",\n  \"NoKTP\": \"8568658\",\n  \"NoNPWP\": \"56675347625738856658\",\n  \"IndividualType\": 1,\n  \"Address\": \"jalan Ks. Tubun 3 Dalam No. 10, Slipi, Palmerah, RT.4/RW.2, Slipi, Kec. Palmerah, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11410\",\n  \"Provinsi\": \"Jawa Tengah\",\n  \"Kabupaten\": \"Magelang\",\n  \"Kecamatan\": \"Burui\",\n  \"Kelurahan\": \"mangkep\",\n  \"KodePos\": 12153,\n  \"NamaBank\": \"Mandiri\",\n  \"NoRekening\": \"06506065\",\n  \"NamaRekening\": \"Sartono Anwar\",\n  \"NamaKontakDarurat1\": \"babilon\",\n  \"PhoneKontakDarurat1\": \"548568465\",\n  \"EmailKontakDarurat1\": \"xxxx@xxxx.com\",\n  \"HubunganKontakDarurat1\": \"STAF\",\n  \"NamaKontakDarurat2\": \"user\",\n  \"PhoneKontakDarurat2\": \"588585538865\",\n  \"EmailKontakDarurat2\": \"xxxx@xxxx.com\",\n  \"HubunganKontakDarurat2\": \"STAF\",\n  \"Kordinat\": \"-6.338516829678283, 107.62101561910438\",\n  \"RekomendasiLimit\": 120000000,\n  \"RekomendasiTenor\": 30,\n  \"Rate\": 1.5,\n  \"LenderRate\": 0.85,\n  \"NamaPerusahaan\": \"\",\n  \"NoNPWPBadanUsaha\": \"\",\n  \"NoAktaPendirian\": \"\",\n  \"NoAktaTerbaru\": \"\",\n  \"NoSKMenkumham\": \"\",\n  \"NoSIUP\": \"\",\n  \"NoTDPNIB\": \"\",\n  \"NoKTPDirektur\": \"\",\n  \"NamaDirektur\": \"\",\n  \"NoHandphoneDirektur\": \"\",\n  \"EmailDirektur\": \"\",\n  \"ParentCommunityCode\": \"DEV_YOUTAP\",\n  \"ReligionCode\": 1,\n  \"MaritalStatusCode\":1,\n  \"ID_Pekerjaan\":5,\n  \"ID_Bidang_Pekerjaan\":\"e12\",\n  \"ID_Pekerjaan_Online\":2,\n  \"PendapatanCode\":4,\n  \"PengalamanKerjaCode\":4,\n  \"PendidikanTerakhirCode\": 7,\n  \"StatusKepemilikanRumahCode\":3\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Register_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Register_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Member/GetMember": {
+      "post": {
+        "tags": [
+          "Member"
+        ],
+        "summary": "GetMember",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "AlamatEmail": {
+                    "type": "string",
+                    "example": "putrianjani@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMember_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMember_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Member/GetVA": {
+      "post": {
+        "tags": [
+          "Member"
+        ],
+        "summary": "GetMemberVA",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "AlamatEmail": {
+                    "type": "string",
+                    "example": "putrianjani@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVA_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVA_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Member/GetLimit": {
+      "post": {
+        "tags": [
+          "Member"
+        ],
+        "summary": "GetLimit",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "AlamatEmail": {
+                    "type": "string",
+                    "example": "putrianjani@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLimit_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLimit_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Member/UpdateDocBorrower": {
+      "post": {
+        "tags": [
+          "Member Document"
+        ],
+        "summary": "UpdateDocBorrower",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RekeningKoran": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoSelfie": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileKTP": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileNPWP": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileAktaPendirian": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileNPWPBadanUsaha": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "BukuRekening": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "DocPendukung": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileSKMenkumham": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileAktaTerbaru": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "SKDPFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileKTPDirektur": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "LampiranSuratKuasa": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoDirektur": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoKomisaris": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FotoTempatUsaha": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileAktaBerisiSusunanPengurusTerbaru": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileSIUP": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FileTDPNIB": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "LaporanKeuangan": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "application/json": {
+                    "type": "string",
+                    "example": "{\n\"AlamatEmail\": \"adrianthumbs@gmail.com\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Default_Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Default_Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Loan/DocumentSign": {
+      "post": {
+        "tags": [
+          "Member Document"
+        ],
+        "summary": "GetLinkSignDocument",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "AlamatEmail": {
+                    "type": "string",
+                    "example": "putrianjani@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentSign"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentSign"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
