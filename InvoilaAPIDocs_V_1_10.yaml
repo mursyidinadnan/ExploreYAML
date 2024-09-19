@@ -1,0 +1,901 @@
+openapi: 3.0.3
+info:
+  title: Invoila API Docs
+  version: 1.1.7
+  contact:
+    name: Invoila
+    email: support@invoila.co.id
+    url: https://invoila.co.id/
+  description: The Invoila API can be used to make it easier for Invoila partners to carry out loan transactions or manage data related to integrated Invoila partner users. The platform is built on the concept of a decision engine, so each partner needs to set up rules and constraint variables before calling any APIs provided by the promotion platform. Partners are provided with test and production web portals to access rules management
+  
+servers:
+  - url: https://apistaging4.invoila.co.id
+    description: Development Server
+  - url: https://api.invoila.co.id
+    description: Production Server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Unauthorized:
+      type: object
+      required:
+        - Message
+      properties:
+        Message:
+          type: string
+    GetLoanDetail_Response:
+      type: object
+      properties:
+        KodeMember:
+          type: string
+        KodePinjaman:
+          type: string
+        LoanAmount:
+          type: string
+        LoanStartDate:
+          type: string
+        DisburseDate:
+          type: string
+        DueDate:
+          type: string
+        InterestPercent:
+          type: string
+        RepaymentPrincipal:
+          type: string
+        RepaymentInterest:
+          type: string
+        RepaymentLate:
+          type: string
+        RepaymentAmount:
+          type: string
+        LoanPurpose:
+          type: string
+        Tenor:
+          type: string
+        TenorType:
+          type: string
+        StatusLoan:
+          type: string
+        Sequence:
+          type: string
+        ResponseCode:
+          type: integer
+        ResponseMessage:
+          type: string
+        AlamatEmail:
+          type: string
+    RequestLoan_Response:
+      type: object
+      properties:
+        KodePinjaman:
+          type: string
+        KodeMember:
+          type: string
+        ResponseCode:
+          type: integer
+        ResponseMessage:
+          type: string
+        AlamatEmail:
+          type: string
+    Default_Response:
+      type: object
+      properties:
+        ResponseCode:
+          type: integer
+        ResponseMessage:
+          type: string
+        AlamatEmail:
+          type: string
+    GetTransactionList_Response:
+      type: object
+      properties:
+        KodeMember:
+          type: string
+        AlamatEmail:
+          type: string
+        Transactions:
+          type: array
+          items:
+            type: object
+            properties:
+              KodePinjaman:
+                type: string
+              LoanAmount:
+                type: string
+              LoanStartDate:
+                type: string
+              DisburseDate:
+                type: string
+              DueDate:
+                type: string
+              InterestPercent:
+                type: string
+              Tenor:
+                type: string
+              TenorType:
+                type: string
+              RepaymentPrincipal:
+                type: string
+              RepaymentInterest:
+                type: string
+              RepaymentLate:
+                type: string
+              RepaymentAmount:
+                type: string
+              StatusLoan:
+                type: string
+              LoanPurpose:
+                type: string
+        ResponseCode:
+          type: number
+        ResponseMessage:
+          type: string
+    Register_Response:
+      type: object
+      properties:
+        StatusMember:
+          type: number
+        KodeMember:
+          type: string
+        ResponseCode:
+          type: number
+        ResponseMessage:
+          type: string
+        AlamatEmail:
+          type: string
+    GetMember_Response:
+      type: object
+      properties:
+        AlamatEmail:
+          type: string
+        KodeMember:
+          type: string
+        Status:
+          type: string
+        Nama:
+          type: string
+        NoHandphone:
+          type: string
+        NoKTP:
+          type: string
+        NoNPWP:
+          type: string
+        IndividualType:
+          type: number
+        Address:
+          type: string
+        Provinsi:
+          type: string
+        Kabupaten:
+          type: string
+        Kecamatan:
+          type: string
+        Kelurahan:
+          type: string
+        NamaBank:
+          type: string
+        NoRekening:
+          type: string
+        NamaRekening:
+          type: string
+        NamaKontakDarurat1:
+          type: string
+        PhoneKontakDarurat1:
+          type: string
+        EmailKontakDarurat1:
+          type: string
+        HubunganKontakDarurat1:
+          type: string
+        NamaKontakDarurat2:
+          type: string
+        PhoneKontakDarurat2:
+          type: string
+        EmailKontakDarurat2:
+          type: string
+        HubunganKontakDarurat2:
+          type: string
+        Kordinat:
+          type: string
+        RekomendasiLimit:
+          type: string
+        RekomendasiTenor:
+          type: string
+        NamaPerusahaan:
+          type: string
+        NoNPWPBadanUsaha:
+          type: string
+        NoAktaPendirian:
+          type: string
+        NoAktaTerbaru:
+          type: string
+        NoSKMenkumham:
+          type: string
+        NoSIUP:
+          type: string
+        NoTDP:
+          type: string
+        NoKTPDirektur:
+          type: string
+        NamaDirektur:
+          type: string
+        NoHandphoneDirektur:
+          type: string
+        EmailDirektur:
+          type: string
+        FileKTPDirektur:
+          type: string
+        LimitPlafon:
+          type: string
+        Outstanding:
+          type: string
+        SisaLimit:
+          type: string
+        LimitPeminjam:
+          type: string
+        PlafonStart:
+          type: string
+        PlafonEnd:
+          type: string
+        DocPlafonBorrowerUrl:
+          type: string
+        DocPlafonBorrowerStatus:
+          type: string
+        DocPlafonLenderUrl:
+          type: string
+        DocPlafonLenderStatus:
+          type: string
+        VirtualAccountName:
+          type: string
+        MandiriVirtualAccountNo:
+          type: string
+        BCAVirtualAccountNo:
+          type: string
+        ResponseCode:
+          type: number
+        ResponseMessage:
+          type: string
+    GetVA_Response:
+      type: array
+      items:
+        type: object
+        properties:
+          BankID:
+            type: string
+          BankName:
+            type: string
+          VirtualAccountNo:
+            type: string
+          VirtualAccountName:
+            type: string
+          ResponseCode:
+            type: number
+          ResponseMessage:
+            type: string
+          AlamatEmail:
+            type: string
+    GetLimit_Response:
+      type: object
+      properties:
+        AlamatEmail:
+          type: string
+        KodeMember:
+          type: string
+        LimitPlafon:
+          type: string
+        Outstanding:
+          type: string
+        SisaLimit:
+          type: string
+        ResponseCode:
+          type: number
+        ResponseMessage:
+          type: string
+    DocumentSign:
+      type: object
+      properties:
+        linkSign:
+          type: string
+        KodeMember:
+          type: string
+        ResponseCode:
+          type: number
+        ResponseMessage:
+          type: string
+        AlamatEmail:
+          type: string
+          
+# Tags
+tags:
+  - name: Authentication
+    description: API related to authentication process, consists of get token.Including individual rule and list of rules.
+  - name: Member
+    description: Group API related to promotion register member, including data member, VA member, and limit member.
+  - name: Loan
+    description: Group API related to loan request, inquiry, consists of loan detail and OTP request for secured loan request.
+  - name: Member Document
+    description: Group API related to promotion update document member, including document url loan agreement member.
+
+
+paths:
+  /Token:
+    post:
+      tags:
+        - Authentication
+      summary: Get Token from system [A01].
+      description: Tokens are required for each Invoila API service used and have a usage time limit of only 2 minutes. Username and password will be provided by Invoila according to the service environment that will be used.<br/><br/> *Note :* Please contact the Invoila development team for set up username and password on <a href="dev.invoila@solmitra.com">dev.invoila@solmitra.com</a> and/or <a href="support@invoila.co.id">support@invoila.co.id</a>.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - grant_type
+                - username
+                - password
+              properties:
+                grant_type:
+                  type: string
+                  example: password
+                username:
+                  type: string
+                  example: carenow@invoila.com
+                password:
+                  type: string
+                  example: Carenow01
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: 
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_in:
+                    type: string
+                  userName:
+                    type: string
+                  .issued:
+                    type: string
+                  .expires:
+                    type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  error_description:
+                    type: string  
+  /api/Loan/RequestLoan:
+    post:
+      tags:
+        - Loan
+      summary: RequestLoan
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                application/json:
+                  type: string
+                  example: |-
+                    {"KodeMember":"0424035911","LoanPurpose":"Bisnis","LoanAmount":100000.0,"Tenor":2,"AlamatEmail":"ranti@gmail.com","TipeTenor":1,"KodeOTP":"1398"}
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestLoan_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestLoan_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Loan/RequestLoanOTP:
+    post:
+      tags:
+        - Loan
+      summary: RequestLoanOTP
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                application/json:
+                  type: string
+                  example: '{"AlamatEmail":"ranti@gmail.com"}'
+                           
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Default_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Default_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Loan//DetailLoan:
+    post:
+      tags:
+        - Loan
+      summary: GetLoanDetail
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                AlamatEmail:
+                  type: string
+                  example: putrianjani@gmail.com
+                KodePinjaman:
+                  type: string
+                  example: LND240405001
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLoanDetail_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLoanDetail_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Loan/GetTransactionList:
+    post:
+      tags:
+        - Loan
+      summary: GetLoanList
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                AlamatEmail:
+                  type: string
+                  example: putrianjani@gmail.com
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTransactionList_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTransactionList_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Member/Register:
+    post:
+      tags:
+        - Member
+      summary: RegisterMember
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                RekeningKoran:
+                  type: string
+                  format: binary
+                FotoSelfie:
+                  type: string
+                  format: binary
+                FileKTP:
+                  type: string
+                  format: binary
+                FileNPWP:
+                  type: string
+                  format: binary
+                FileAktaPendirian:
+                  type: string
+                  format: binary
+                FileNPWPBadanUsaha:
+                  type: string
+                  format: binary
+                BukuRekening:
+                  type: string
+                  format: binary
+                DocPendukung:
+                  type: string
+                  format: binary
+                FileSKMenkumham:
+                  type: string
+                  format: binary
+                FileAktaTerbaru:
+                  type: string
+                  format: binary
+                SKDPFile:
+                  type: string
+                  format: binary
+                FileKTPDirektur:
+                  type: string
+                  format: binary
+                LampiranSuratKuasa:
+                  type: string
+                  format: binary
+                FotoDirektur:
+                  type: string
+                  format: binary
+                FotoKomisaris:
+                  type: string
+                  format: binary
+                FotoTempatUsaha:
+                  type: string
+                  format: binary
+                FileAktaBerisiSusunanPengurusTerbaru:
+                  type: string
+                  format: binary
+                FileSIUP:
+                  type: string
+                  format: binary
+                FileTDPNIB:
+                  type: string
+                  format: binary
+                LaporanKeuangan:
+                  type: string
+                  format: binary
+                application/json:
+                  type: string
+                  example: |-
+                    {
+                      "Nama": "Qwediop Anwar",
+                      "AlamatEmail": "cscasscsc@gamail.com",
+                      "NoHandphone": "4677686575688",
+                      "NoKTP": "8568658",
+                      "NoNPWP": "56675347625738856658",
+                      "IndividualType": 1,
+                      "Address": "jalan Ks. Tubun 3 Dalam No. 10, Slipi, Palmerah, RT.4/RW.2, Slipi, Kec. Palmerah, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11410",
+                      "Provinsi": "Jawa Tengah",
+                      "Kabupaten": "Magelang",
+                      "Kecamatan": "Burui",
+                      "Kelurahan": "mangkep",
+                      "KodePos": 12153,
+                      "NamaBank": "Mandiri",
+                      "NoRekening": "06506065",
+                      "NamaRekening": "Sartono Anwar",
+                      "NamaKontakDarurat1": "babilon",
+                      "PhoneKontakDarurat1": "548568465",
+                      "EmailKontakDarurat1": "xxxx@xxxx.com",
+                      "HubunganKontakDarurat1": "STAF",
+                      "NamaKontakDarurat2": "user",
+                      "PhoneKontakDarurat2": "588585538865",
+                      "EmailKontakDarurat2": "xxxx@xxxx.com",
+                      "HubunganKontakDarurat2": "STAF",
+                      "Kordinat": "-6.338516829678283, 107.62101561910438",
+                      "RekomendasiLimit": 120000000,
+                      "RekomendasiTenor": 30,
+                      "Rate": 1.5,
+                      "LenderRate": 0.85,
+                      "NamaPerusahaan": "",
+                      "NoNPWPBadanUsaha": "",
+                      "NoAktaPendirian": "",
+                      "NoAktaTerbaru": "",
+                      "NoSKMenkumham": "",
+                      "NoSIUP": "",
+                      "NoTDPNIB": "",
+                      "NoKTPDirektur": "",
+                      "NamaDirektur": "",
+                      "NoHandphoneDirektur": "",
+                      "EmailDirektur": "",
+                      "ParentCommunityCode": "DEV_YOUTAP",
+                      "ReligionCode": 1,
+                      "MaritalStatusCode":1,
+                      "ID_Pekerjaan":5,
+                      "ID_Bidang_Pekerjaan":"e12",
+                      "ID_Pekerjaan_Online":2,
+                      "PendapatanCode":4,
+                      "PengalamanKerjaCode":4,
+                      "PendidikanTerakhirCode": 7,
+                      "StatusKepemilikanRumahCode":3
+                    }
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Member/GetMember:
+    post:
+      tags:
+        - Member
+      summary: GetMember
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                AlamatEmail:
+                  type: string
+                  example: putrianjani@gmail.com
+      security:
+        - bearerAuth: []
+      responses: 
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMember_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMember_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Member/GetVA:
+    post:
+      tags:
+        - Member
+      summary: GetMemberVA
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                AlamatEmail:
+                  type: string
+                  example: putrianjani@gmail.com
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVA_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVA_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Member/GetLimit:
+    post:
+      tags:
+        - Member
+      summary: GetLimit
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                AlamatEmail:
+                  type: string
+                  example: putrianjani@gmail.com
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLimit_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLimit_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Member/UpdateDocBorrower:
+    post:
+      tags:
+        - Member Document
+      summary: UpdateDocBorrower
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                RekeningKoran:
+                  type: string
+                  format: binary
+                FotoSelfie:
+                  type: string
+                  format: binary
+                FileKTP:
+                  type: string
+                  format: binary
+                FileNPWP:
+                  type: string
+                  format: binary
+                FileAktaPendirian:
+                  type: string
+                  format: binary
+                FileNPWPBadanUsaha:
+                  type: string
+                  format: binary
+                BukuRekening:
+                  type: string
+                  format: binary
+                DocPendukung:
+                  type: string
+                  format: binary
+                FileSKMenkumham:
+                  type: string
+                  format: binary
+                FileAktaTerbaru:
+                  type: string
+                  format: binary
+                SKDPFile:
+                  type: string
+                  format: binary
+                FileKTPDirektur:
+                  type: string
+                  format: binary
+                LampiranSuratKuasa:
+                  type: string
+                  format: binary
+                FotoDirektur:
+                  type: string
+                  format: binary
+                FotoKomisaris:
+                  type: string
+                  format: binary
+                FotoTempatUsaha:
+                  type: string
+                  format: binary
+                FileAktaBerisiSusunanPengurusTerbaru:
+                  type: string
+                  format: binary
+                FileSIUP:
+                  type: string
+                  format: binary
+                FileTDPNIB:
+                  type: string
+                  format: binary
+                LaporanKeuangan:
+                  type: string
+                  format: binary
+                application/json:
+                  type: string
+                  example: |-
+                    {
+                    "AlamatEmail": "adrianthumbs@gmail.com"
+                    }
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Default_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Default_Response'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  /api/Loan/DocumentSign:
+    post:
+      tags:
+        - Member Document
+      summary: GetLinkSignDocument
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                AlamatEmail:
+                  type: string
+                  example: putrianjani@gmail.com
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentSign'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentSign'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
