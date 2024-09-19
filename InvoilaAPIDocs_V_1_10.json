@@ -491,7 +491,7 @@
           "Authentication"
         ],
         "summary": "Get Token from system [A01].",
-        "description": "Tokens are required for each Invoila API service used and have a usage time limit of only 2 minutes. Username and password will be provided by Invoila according to the service environment that will be used.<br/><br/> *Note :* Please contact the Invoila development team for set up username and password on <a href=\"dev.invoila@solmitra.com\">dev.invoila@solmitra.com</a> and/or <a href=\"support@invoila.co.id\">support@invoila.co.id</a>.",
+        "description": "Tokens are required for each Invoila API service used and have a usage time limit of only 2 minutes. Username and password will be provided by Invoila according to the service environment that will be used.<br/><br/> *Note :* Please contact the Invoila development team for set up username and password on <a href=\"mailto:dev.invoila@solmitra.com\">dev.invoila@solmitra.com</a> and/or <a href=\"mailto:support@invoila.co.id\">support@invoila.co.id</a>.",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
